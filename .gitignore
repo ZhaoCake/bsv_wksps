@@ -1,0 +1,44 @@
+# Bluespec generated files
+*.bo
+*.ba
+*.v
+*.h
+*.cxx
+*.o
+
+# Simulation outputs
+sim/build/
+*.vcd
+*.fsdb
+*.wlf
+
+# Verilator generated files
+obj_dir/
+V*
+*.mk
+*.d
+
+# Build outputs
+build/
+*.log
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Nix
+result
+result-*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Temporary files
+*.tmp
+*.temp
