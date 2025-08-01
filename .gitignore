@@ -1,13 +1,23 @@
-# Bluespec generated files
+# BSV generated files
 *.bo
 *.ba
-*.v
-*.h
 *.cxx
+*.h
 *.o
+sim.out
+sim.out.so
+dump.vcd
 
-# Simulation outputs
-sim/build/
+# Verilog generated files (in bsv_src)
+bsv_src/*.v
+
+# Verilator generated files
+obj_dir/
+
+# Build and output directories
+build/
+waves/
+*.vcd
 *.vcd
 *.fsdb
 *.wlf

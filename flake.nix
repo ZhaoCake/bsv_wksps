@@ -43,9 +43,8 @@
             # Text processing
             coreutils             # Basic utilities
             findutils             # Find utilities
-            grep                  # Text search
-            sed                   # Stream editor
-            awk                   # Text processing
+            gnugrep                  # Text search
+            gnused                   # Stream editor
           ];
 
           shellHook = ''
@@ -56,13 +55,21 @@
             echo "   • verilator (Advanced simulator): $(which verilator)"
             echo "   • gtkwave (Waveform viewer): $(which gtkwave)"
             echo ""
-            echo "🔧 Build scripts:"
-            echo "   • bsvbuild.sh is available in PATH"
+            echo "� Project structure:"
+            echo "   • bsv_src/ - BSV source files"
+            echo "   • verilator_src/ - Verilator C++ simulation files"
             echo "   • Use 'make help' to see available targets"
             echo ""
             
             # Add bsvbuild.sh to PATH
             export PATH="$PWD:$PATH"
+            chmod +x bsvbuild.sh
+            
+            # Set BSV library path
+            export BLUESPECDIR="${pkgs.bluespec}/lib"
+            
+            # Verilator flags for better performance
+            export VERILATOR_FLAGS="-Wall -Wno-UNUSED -Wno-UNOPTFLAT --trace"
           '';
         };
       });
