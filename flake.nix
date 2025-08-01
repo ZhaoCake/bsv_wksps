@@ -17,43 +17,52 @@
             # Bluespec compiler
             bluespec
             
-            # Verilator for simulation
+            # Verilog simulation tools (for bsvbuild.sh compatibility)
+            verilog               # Icarus Verilog (iverilog)
+            
+            # Verilator for advanced simulation
             verilator
             
             # Build tools
             gnumake
             gcc
             gdb
+            cmake                 # For Verilator C++ builds
             
-            # Version control
+            # Development utilities
             git
+            which                 # Command location utility
+            file                  # File type detection
             
-            # Text editors and tools
-            vim
+            # C++ development (for Verilator simulation)
+            valgrind              # Memory debugging
+            
+            # Waveform viewing
             gtkwave
             
-            # Python for scripting
-            python3
-            python3Packages.pip
-            
-            # Documentation tools
-            pandoc
-            texlive.combined.scheme-basic
+            # Text processing
+            coreutils             # Basic utilities
+            findutils             # Find utilities
+            grep                  # Text search
+            sed                   # Stream editor
+            awk                   # Text processing
           ];
 
           shellHook = ''
-            echo "Bluespec SystemVerilog development environment loaded!"
-            echo "Available tools:"
-            echo "  - bsc (Bluespec compiler): $(which bsc)"
-            echo "  - verilator: $(which verilator)"
-            echo "  - gtkwave (waveform viewer): $(which gtkwave)"
+            echo "🚀 Bluespec SystemVerilog Development Environment"
+            echo "📦 Available tools:"
+            echo "   • bsc (Bluespec compiler): $(which bsc)"
+            echo "   • iverilog (Verilog simulator): $(which iverilog)"
+            echo "   • verilator (Advanced simulator): $(which verilator)"
+            echo "   • gtkwave (Waveform viewer): $(which gtkwave)"
             echo ""
-            echo "Project structure:"
-            echo "  src/     - BSV source files"
-            echo "  tb/      - Testbenches"
-            echo "  sim/     - Simulation files"
-            echo "  scripts/ - Build and utility scripts"
+            echo "🔧 Build scripts:"
+            echo "   • bsvbuild.sh is available in PATH"
+            echo "   • Use 'make help' to see available targets"
             echo ""
+            
+            # Add bsvbuild.sh to PATH
+            export PATH="$PWD:$PATH"
           '';
         };
       });
