@@ -98,10 +98,11 @@ verilator-build: $(VERILOG_FILES)
 	fi
 	@if [ -z "$(CPP_FILES)" ]; then \
 		echo "❌ Error: No C++ files found in $(VERILATOR_SRC_DIR)/"; \
-		echo "Please create main.cpp in $(VERILATOR_SRC_DIR)/"; \
+		echo "Please create main.CASEINCOMPLETE in $(VERILATOR_SRC_DIR)/"; \
 		exit 1; \
 	fi
 	@mkdir -p $(WAVES_DIR)
+	@## 如果要启用compile commands # bear -- $(VERILATOR) $(VERILATOR_FLAGS) $(VERILATOR_WARNINGS) \
 	$(VERILATOR) $(VERILATOR_FLAGS) $(VERILATOR_WARNINGS) \
 		$(VERILOG_FILES) \
 		$(CPP_FILES)

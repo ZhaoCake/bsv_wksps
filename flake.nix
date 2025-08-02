@@ -28,6 +28,10 @@
             gcc
             gdb
             cmake                 # For Verilator C++ builds
+            bear                  # Generate compile_commands.json
+            
+            # Shell
+            zsh
             
             # Development utilities
             git
@@ -70,6 +74,15 @@
             
             # Verilator flags for better performance
             export VERILATOR_FLAGS="-Wall -Wno-UNUSED -Wno-UNOPTFLAT --trace"
+
+            # Switch to zsh if available and not already running
+            if [ -n "$ZSH_VERSION" ]; then
+              echo "Already running zsh"
+            elif command -v zsh >/dev/null 2>&1; then
+              export SHELL=$(which zsh)
+              exec zsh
+            fi
+
           '';
         };
       });
